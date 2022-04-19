@@ -1,0 +1,17 @@
+name: flutter ios integration test
+
+on: [push, pull_request]
+
+jobs:
+  ios_integration_test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          channel: "stable"
+      - uses: futureware-tech/simulator-action@v1
+        with:
+          model: "iPhone 13"
+      - run: "flutter test integration_test/app_test.dart"
