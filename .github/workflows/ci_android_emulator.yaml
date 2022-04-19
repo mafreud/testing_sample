@@ -1,0 +1,19 @@
+name: flutter integration test
+
+on: [push, pull_request]
+
+jobs:
+  integration_test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v3
+        with:
+          cache: true
+          channel: "stable"
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: |
+            flutter pub get
+            "flutter test integration_test/app_test.dart"
