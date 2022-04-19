@@ -9,8 +9,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v2
         with:
+          cache: true
           channel: "stable"
       - uses: futureware-tech/simulator-action@v1
         with:
-          model: "iPhone 8"
-      - run: "flutter drive --target=integration_test/app.dart"
+          model: "iPhone 13"
+      - run: "flutter drive --target=integration_test/app_test.dart"
