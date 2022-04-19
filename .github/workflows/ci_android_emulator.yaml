@@ -1,9 +1,9 @@
-name: flutter integration test
+name: flutter android integration test
 
 on: [push, pull_request]
 
 jobs:
-  integration_test:
+  android_integration_test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,6 +14,4 @@ jobs:
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: |
-            flutter pub get
-            "flutter test integration_test/app_test.dart"
+          script: flutter test integration_test/app_test.dart

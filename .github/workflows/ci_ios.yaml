@@ -1,9 +1,9 @@
-name: flutter integration test
+name: flutter ios integration test
 
 on: [push, pull_request]
 
 jobs:
-  integration_test:
+  ios_integration_test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
